@@ -17,13 +17,10 @@ export const checkRegister = (values: any) => {
   }
   if (!values.confirmPassword) {
     errors.confirmPassword = 'Confirm password is required'
+  } else if (values.confirmPassword !== values.password) {
+    errors.confirmPassword = 'Passwords must match'
   }
-  if (!values.lat) {
-    errors.lat = 'Latitude is required'
-  }
-  if (!values.long) {
-    errors.long = 'Longitude is required'
-  }
+
   Object.keys(errors).forEach((key) => {
     if (errors[key as keyof RegisterErrors] === '') {
       delete errors[key as keyof RegisterErrors]
