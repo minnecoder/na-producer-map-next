@@ -97,6 +97,7 @@ export default function RegisterPage() {
                 label="Display Name"
                 name="name"
                 value={user.name}
+                placeholder='e.g. "Sir Rounded by Liberals" or "John Doe"`'
                 onChange={handleChange}
                 error={errors.name}
               />
@@ -125,7 +126,7 @@ export default function RegisterPage() {
             </form>
           </div>
           <div className={styles.right}>
-            <p>Please place the marker</p>
+            <p>Please place the marker to mark where you are located</p>
             <RegisterMap user={user} setUser={setUser} />
           </div>
         </div>
