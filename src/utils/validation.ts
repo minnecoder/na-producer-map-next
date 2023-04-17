@@ -1,6 +1,6 @@
 import { RegisterErrors } from '../../types'
 
-export const checkRegister = (values: any) => {
+const checkRegister = (values: any) => {
   const errors: any = {}
   if (!values.name) {
     errors.name = 'Name is required'
@@ -29,3 +29,5 @@ export const checkRegister = (values: any) => {
 
   return errors
 }
+
+export default checkRegister
