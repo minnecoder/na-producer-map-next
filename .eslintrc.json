@@ -33,6 +33,7 @@
         "tsx": "never"
       }
     ],
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "no-restricted-syntax": "off"
   }
 }
