@@ -1,20 +1,20 @@
-import React, { FC, InputHTMLAttributes } from 'react'
+import { InputHTMLAttributes } from 'react'
 import styles from './TextInput.module.css'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
   name: string
-  placeholder?: string
   error: string
+  placeholder?: string
 }
 
-const TextInput: FC<InputProps> = ({
+function TextInput({
   label,
   name,
-  placeholder,
   error,
+  placeholder,
   ...rest
-}) => {
+}: TextInputProps) {
   return (
     <div className={styles.container}>
       <label htmlFor={name}>

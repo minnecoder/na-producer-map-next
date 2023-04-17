@@ -1,7 +1,6 @@
-import { useState, useRef, useMemo } from 'react'
+import { Dispatch, SetStateAction, useState, useRef, useMemo } from 'react'
 import { Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
-import { Dispatch, SetStateAction } from 'react'
 import { Register } from '../../../types'
 
 type Props = {
@@ -31,7 +30,7 @@ export default function DraggableMarker({ user, setUser }: Props) {
         }
       },
     }),
-    []
+    [markerRef]
   )
 
   return (

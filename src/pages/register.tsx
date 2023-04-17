@@ -5,9 +5,9 @@ import { sanitize } from 'dompurify'
 import TextInput from '@/components/TextInput'
 // @ts-ignore
 import RegisterMap from '@/components/RegisterMap'
-import { checkRegister } from '@/utils/validation'
-import { Register, RegisterErrors } from '../../types'
+import checkRegister from '@/utils/validation'
 import styles from '@/styles/Register.module.css'
+import { Register, RegisterErrors } from '../../types'
 
 // TODO: Finish design
 // TODO: Complete handleSubmit function

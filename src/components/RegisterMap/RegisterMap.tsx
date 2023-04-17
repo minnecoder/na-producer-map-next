@@ -1,8 +1,8 @@
+import { Dispatch, SetStateAction } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import styles from '@/styles/RegisterMap.module.css'
 import DraggableMarker from '../DraggableMarker'
-import { Dispatch, SetStateAction } from 'react'
 import { Register } from '../../../types'
 
 type Props = {
