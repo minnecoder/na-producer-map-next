@@ -36,4 +36,8 @@ function TextInput({
   )
 }
 
+TextInput.defaultProps = {
+  placeholder: '',
+}
+
 export default TextInput
