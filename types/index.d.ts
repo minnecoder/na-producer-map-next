@@ -15,3 +15,13 @@ export interface RegisterErrors {
   lat: string
   long: string
 }
+
+export interface Login {
+  email: string
+  password: string
+}
+
+export interface LoginErrors {
+  email: string
+  password: string
+}
