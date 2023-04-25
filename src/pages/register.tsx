@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import { sanitize } from 'dompurify'
 import TextInput from '@/components/TextInput'
 // @ts-ignore
@@ -123,6 +124,12 @@ export default function RegisterPage() {
                 error={errors.confirmPassword}
               />
               <input type="submit" value="Register" />
+              <p>
+                Already have an account?{' '}
+                <span>
+                  <Link href="/login">Login</Link>
+                </span>
+              </p>
             </form>
           </div>
           <div className={styles.right}>
