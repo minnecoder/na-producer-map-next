@@ -35,7 +35,6 @@ export default async function handler(
       }
 
     default:
-      res.status(400).json({ success: false })
-      break
+      return res.status(400).json({ success: false })
   }
 }
