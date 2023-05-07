@@ -24,6 +24,14 @@ export interface User {
   long: number
 }
 
+export interface UpdateUserErrors {
+  name: string
+  email: string
+  password: string
+  lat: string
+  long: string
+}
+
 export interface Login {
   email: string
   password: string
