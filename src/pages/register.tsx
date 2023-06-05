@@ -11,7 +11,6 @@ import styles from '@/styles/Register.module.css'
 import { Register, RegisterErrors } from '../../types'
 
 // TODO: Finish design
-// TODO: Complete handleSubmit function
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -48,19 +47,15 @@ export default function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e?.preventDefault()
 
-    if (user.password !== user.confirmPassword) {
-      setErrorMessage("Passwords don't match")
-    }
-
     sanitizeData(user)
-    if (user.lat === 0 && user.long === 0) {
-      setErrorMessage('Please set marker')
-    }
     const formErrors = checkRegister(user)
     setErrors(formErrors)
+    if (user.lat === 0 && user.long === 0) {
+      setErrorMessage('Please set marker')
+      return
+    }
     if (Object.keys(formErrors).length > 0) return
 
-    console.log('registering user')
     const response = await fetch('/api/auth/register', {
       method: 'POST',
       headers: {
@@ -76,15 +71,14 @@ export default function RegisterPage() {
       }),
     })
 
-    console.log(response)
+    const data = await response.json()
 
-    // TODO: figure out better error message before going into prod
-    if (response.status === 400) {
-      setErrorMessage('Email is already in use')
+    if (data.error) {
+      setErrorMessage(data.error)
     }
 
-    if (response.status === 200) {
-      router.push('/jobposts')
+    if (data.success) {
+      router.push('/map')
     }
   }
 
@@ -110,6 +104,7 @@ export default function RegisterPage() {
               <TextInput
                 label="Email"
                 name="email"
+                type="email"
                 value={user.email}
                 onChange={handleChange}
                 error={errors.email}
