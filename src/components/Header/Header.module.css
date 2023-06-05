@@ -23,3 +23,14 @@
 .right {
   margin-right: 1rem;
 }
+
+.loginButton {
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  color: black;
+  background: white;
+  margin-right: 2rem;
+  font: unset;
+  cursor: pointer;
+}
