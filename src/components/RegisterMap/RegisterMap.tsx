@@ -6,11 +6,10 @@ import DraggableMarker from '../DraggableMarker'
 import { Register } from '../../../types'
 
 type Props = {
-  user: Register
   setUser: Dispatch<SetStateAction<Register>>
 }
 
-function RegisterMap({ user, setUser }: Props) {
+function RegisterMap({ setUser }: Props) {
   return (
     <MapContainer
       className={styles.map}
@@ -20,7 +19,7 @@ function RegisterMap({ user, setUser }: Props) {
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <DraggableMarker user={user} setUser={setUser} />
+      <DraggableMarker setUser={setUser} />
     </MapContainer>
   )
 }

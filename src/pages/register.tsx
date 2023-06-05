@@ -136,7 +136,7 @@ export default function RegisterPage() {
           </div>
           <div className={styles.right}>
             <p>Please place the marker to mark where you are located</p>
-            <RegisterMap user={user} setUser={setUser} />
+            <RegisterMap setUser={setUser} />
           </div>
         </div>
       </main>
