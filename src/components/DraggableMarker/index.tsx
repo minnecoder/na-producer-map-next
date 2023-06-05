@@ -4,11 +4,10 @@ import L from 'leaflet'
 import { Register } from '../../../types'
 
 type Props = {
-  user: Register
   setUser: Dispatch<SetStateAction<Register>>
 }
 
-export default function DraggableMarker({ user, setUser }: Props) {
+export default function DraggableMarker({ setUser }: Props) {
   const icon = L.icon({ iconUrl: '/images/marker-icon.png' })
 
   const [position, setPosition] = useState({ lat: 43.0, lng: -96.0 })
@@ -22,11 +21,11 @@ export default function DraggableMarker({ user, setUser }: Props) {
             getLatLng: () => L.LatLng
           }
           setPosition(markerWithLatLng.getLatLng())
-          setUser({
-            ...user,
+          setUser((prevUser) => ({
+            ...prevUser,
             lat: markerWithLatLng.getLatLng().lat,
             long: markerWithLatLng.getLatLng().lng,
-          })
+          }))
         }
       },
     }),
