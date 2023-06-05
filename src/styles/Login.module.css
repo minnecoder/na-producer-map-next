@@ -31,7 +31,11 @@
   margin-top: 1rem;
 }
 
-.form span {
+.form p span {
   margin-left: 0.25rem;
   color: #007bff;
+}
+
+.errorMessage {
+  color: red;
 }
