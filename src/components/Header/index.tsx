@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 import styles from './Header.module.css'
 
 function Header() {
@@ -22,7 +23,13 @@ function Header() {
           </ul>
         </div>
         <div className={styles.right}>
-          <h1>Login</h1>
+          <button
+            className={styles.loginButton}
+            type="button"
+            onClick={() => signIn()}
+          >
+            Login
+          </button>
         </div>
       </div>
     </nav>
