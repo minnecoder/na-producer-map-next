@@ -7,7 +7,7 @@ import TextInput from '@/components/TextInput'
 import { checkRegister } from '@/utils/validation'
 import styles from '@/styles/Register.module.css'
 // @ts-ignore
-import RegisterMap from '@/components/RegisterMap'
+import RegisterMap from '../components/RegisterMap'
 import { Register, RegisterErrors } from '../../types'
 
 // TODO: Finish design
