@@ -48,7 +48,6 @@ export default function LoginPage() {
       password: user.password,
       redirect: false,
     }).then((res) => {
-      console.log(res)
       if (res?.error) {
         setErrorMessage(res.error)
       }
