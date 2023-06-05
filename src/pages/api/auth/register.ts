@@ -9,8 +9,8 @@ export default async function handler(
   const { db } = await connectToDatabase()
   const user = await db.collection('users').findOne({ email: req.body.email })
 
-  if (!user) {
-    return res.status(400).json({ error: 'Email not found' })
+  if (user) {
+    return res.status(400).json({ error: 'Email already exists' })
   }
 
   const salt = await bcrypt.genSalt(10)
