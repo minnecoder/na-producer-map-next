@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, { useState } from 'react'
+import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { sanitize } from 'dompurify'
@@ -42,34 +43,25 @@ export default function LoginPage() {
     setErrors(formErrors)
     if (Object.keys(formErrors).length > 0) return
 
-    console.log('registering user')
-    const response = await fetch('/api/auth/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: user.email,
-        password: user.password,
-      }),
+    signIn('credentials', {
+      email: user.email,
+      password: user.password,
+      redirect: false,
+    }).then((res) => {
+      console.log(res)
+      if (res?.error) {
+        setErrorMessage(res.error)
+      }
+      if (res?.ok) {
+        router.push('/map')
+      }
     })
-
-    console.log(response)
-
-    // TODO: figure out better error message before going into prod
-    if (response.status === 400) {
-      setErrorMessage('Email is already in use')
-    }
-
-    if (response.status === 200) {
-      router.push('/jobposts')
-    }
   }
 
   return (
     <>
       <Head>
-        <title>Register</title>
+        <title>Login</title>
       </Head>
       <main>
         <div className={styles.container}>
@@ -92,7 +84,7 @@ export default function LoginPage() {
               error={errors.password}
             />
 
-            <input type="submit" value="Register" />
+            <input type="submit" value="Login" />
             <p>
               Dont have an account?{' '}
               <span>
