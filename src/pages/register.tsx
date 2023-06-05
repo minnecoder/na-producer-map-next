@@ -4,10 +4,10 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { sanitize } from 'dompurify'
 import TextInput from '@/components/TextInput'
-// @ts-ignore
-import RegisterMap from '@/components/RegisterMap'
 import { checkRegister } from '@/utils/validation'
 import styles from '@/styles/Register.module.css'
+// @ts-ignore
+import RegisterMap from '@/components/RegisterMap'
 import { Register, RegisterErrors } from '../../types'
 
 // TODO: Finish design
