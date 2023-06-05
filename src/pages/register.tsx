@@ -53,6 +53,9 @@ export default function RegisterPage() {
     }
 
     sanitizeData(user)
+    if (user.lat === 0 && user.long === 0) {
+      setErrorMessage('Please set marker')
+    }
     const formErrors = checkRegister(user)
     setErrors(formErrors)
     if (Object.keys(formErrors).length > 0) return
@@ -68,6 +71,8 @@ export default function RegisterPage() {
         email: user.email,
         role: 'user',
         password: user.password,
+        lat: user.lat,
+        long: user.long,
       }),
     })
 
@@ -112,6 +117,7 @@ export default function RegisterPage() {
               <TextInput
                 label="Password"
                 name="password"
+                type="password"
                 value={user.password}
                 onChange={handleChange}
                 error={errors.password}
@@ -119,6 +125,7 @@ export default function RegisterPage() {
               <TextInput
                 label="Confirm Password"
                 name="confirmPassword"
+                type="password"
                 value={user.confirmPassword}
                 onChange={handleChange}
                 error={errors.confirmPassword}
