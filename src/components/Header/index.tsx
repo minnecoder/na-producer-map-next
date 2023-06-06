@@ -1,8 +1,21 @@
+import { useState } from 'react'
 import Link from 'next/link'
-import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import styles from './Header.module.css'
 
 function Header() {
+  const router = useRouter()
+  const { data: session } = useSession()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
+
+  // TODO: Figure out how to make User Profile link go to that user's profile page
+
   return (
     <nav>
       <div className={styles.container}>
@@ -22,15 +35,43 @@ function Header() {
             </li>
           </ul>
         </div>
-        <div className={styles.right}>
-          <button
-            className={styles.loginButton}
-            type="button"
-            onClick={() => signIn()}
-          >
-            Login
-          </button>
-        </div>
+
+        {session?.user ? (
+          <div className={styles.right}>
+            <div className={styles.user} role="button" onClick={toggle}>
+              <div className={styles.userInfo}>
+                <p>{session?.user.name}</p>
+                <span>
+                  {isOpen ? (
+                    <FaChevronUp color="black" />
+                  ) : (
+                    <FaChevronDown color="black" />
+                  )}
+                </span>
+              </div>
+              {isOpen && (
+                <div className={styles.userOptions}>
+                  <ul>
+                    <li onClick={() => router.push('/')}>Profile</li>
+                    <li>Something</li>
+                    <li>Something Else</li>
+                    <li onClick={() => signOut()}>Log Out</li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className={styles.noUserRight}>
+            <button
+              type="button"
+              className={styles.signInButton}
+              onClick={() => signIn()}
+            >
+              Sign In
+            </button>
+          </div>
+        )}
       </div>
     </nav>
   )
