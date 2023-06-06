@@ -6,7 +6,7 @@ import { sanitize } from 'dompurify'
 import TextInput from '@/components/TextInput'
 import { checkRegister } from '@/utils/validation'
 import styles from '@/styles/Register.module.css'
-import RegisterMap from '../components/RegisterMap'
+import RegisterMap from '../components/RegisterMap/RegisterMap'
 import { Register, RegisterErrors } from '../../types'
 
 // TODO: Finish design
