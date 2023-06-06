@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 }
 
 .left {
@@ -20,7 +21,7 @@
   margin: 0 10px;
 }
 
-.right {
+.userLogedin {
   margin-right: 1rem;
 }
 
@@ -32,5 +33,35 @@
   background: white;
   margin-right: 2rem;
   font: unset;
+  cursor: pointer;
+}
+
+.user {
+  margin-right: 1rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userInfo p {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.userOptions {
+  position: absolute;
+  background: white;
+  position: absolute;
+}
+
+.userOptions ul {
+  margin: 0.25rem;
+  list-style-type: none;
+}
+.userOptions li {
+  padding: 0.25rem;
   cursor: pointer;
 }
