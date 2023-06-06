@@ -35,6 +35,9 @@
     ],
     "import/no-unresolved": "off",
     "no-restricted-syntax": "off",
-    "prefer-const": 1
+    "prefer-const": 1,
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/interactive-supports-focus": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
   }
 }
