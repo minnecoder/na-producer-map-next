@@ -15,11 +15,27 @@ export default async function handler(
 
   const salt = await bcrypt.genSalt(10)
   const hashedPassword = await bcrypt.hash(req.body.password, salt)
+
+  function replaceSpacesWithDashes(input: string): string {
+    let result = ''
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] === ' ') {
+        result += '-'
+      } else {
+        result += input[i]
+      }
+    }
+    return result
+  }
+
+  const linkText = replaceSpacesWithDashes(req.body.name)
+
   const createUser = await db.collection('users').insertOne({
     name: req.body.name,
     email: req.body.email,
     password: hashedPassword,
     role: 'user',
+    linkText: linkText,
     lat: req.body.lat,
     long: req.body.long,
   })
