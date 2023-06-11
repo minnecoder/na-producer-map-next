@@ -14,8 +14,6 @@ function Header() {
     setIsOpen(!isOpen)
   }
 
-  // TODO: Figure out how to make User Profile link go to that user's profile page
-
   return (
     <nav>
       <div className={styles.container}>
@@ -52,7 +50,13 @@ function Header() {
               {isOpen && (
                 <div className={styles.userOptions}>
                   <ul>
-                    <li onClick={() => router.push('/')}>Profile</li>
+                    <li
+                      onClick={() =>
+                        router.push(`/user/${session.user.linkText}`)
+                      }
+                    >
+                      Profile
+                    </li>
                     <li>Something</li>
                     <li>Something Else</li>
                     <li onClick={() => signOut()}>Log Out</li>
