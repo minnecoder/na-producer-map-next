@@ -78,6 +78,7 @@ export default function LoginPage() {
             <TextInput
               label="Password"
               name="password"
+              type="password"
               value={user.password}
               onChange={handleChange}
               error={errors.password}
