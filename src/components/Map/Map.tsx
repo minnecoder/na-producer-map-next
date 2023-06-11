@@ -1,10 +1,13 @@
-import "leaflet/dist/leaflet.css";
-import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
-import styles from "@/styles/Map.module.css";
-import L from "leaflet";
+import 'leaflet/dist/leaflet.css'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import styles from '@/styles/Map.module.css'
+import L from 'leaflet'
+import { useRouter } from 'next/router'
+import { User } from '../../../types'
 
-function Map() {
-  const icon = L.icon({ iconUrl: "/images/marker-icon.png" });
+function Map(data: any) {
+  const icon = L.icon({ iconUrl: '/images/marker-icon.png' })
+  const router = useRouter()
 
   return (
     <MapContainer
@@ -15,24 +18,34 @@ function Map() {
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <Marker position={[44.986656, -93.258133]} icon={icon}>
-        <Popup>Minneapolis</Popup>
-        <Tooltip>Minneapolis</Tooltip>
-      </Marker>
-      <Marker position={[39.7392358, -104.990251]} icon={icon}>
-        <Popup>Denver</Popup>
-        <Tooltip>Denver</Tooltip>
-      </Marker>
-      <Marker position={[41.8781136, -87.6297982]} icon={icon}>
-        <Popup>Chicago</Popup>
-        <Tooltip>Chicago</Tooltip>
-      </Marker>
-      <Marker position={[40.7127753, -74.0059728]} icon={icon}>
-        <Popup>New York</Popup>
-        <Tooltip>New York</Tooltip>
-      </Marker>
+      {data.data.map((marker: User) => (
+        <Marker
+          key={marker.email}
+          position={[marker.lat, marker.long]}
+          icon={icon}
+        >
+          <Popup>
+            <div>
+              <h3>{marker.name}</h3>
+              <h4>{marker.email}</h4>
+              <p>{marker.linkText}</p>
+              <button
+                type="button"
+                onClick={() =>
+                  router.push({
+                    pathname: `/user/${marker.linkText}`,
+                    query: { data: JSON.stringify(marker) },
+                  })
+                }
+              >
+                View Profile
+              </button>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
-  );
+  )
 }
 
-export default Map;
+export default Map
