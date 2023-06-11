@@ -15,7 +15,7 @@ interface UserData {
 export default function UserProfile() {
   const router = useRouter()
   const { data } = router.query
-  console.log('Data from router query', data)
+
   let userData: UserData = {
     name: '',
     email: '',
@@ -26,8 +26,6 @@ export default function UserProfile() {
   }
   if (typeof data === 'string') {
     userData = JSON.parse(data)
-  } else {
-    console.log('Something is wrong')
   }
 
   const { data: session } = useSession()
