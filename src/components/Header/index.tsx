@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import styles from './Header.module.css'
 
 function Header() {
@@ -37,39 +36,34 @@ function Header() {
         {session?.user ? (
           <div className={styles.right}>
             <div className={styles.user} role="button" onClick={toggle}>
-              <div className={styles.userInfo}>
-                <p>{session?.user.name}</p>
-                <span>
-                  {isOpen ? (
-                    <FaChevronUp color="black" />
-                  ) : (
-                    <FaChevronDown color="black" />
-                  )}
-                </span>
-              </div>
-              {isOpen && (
-                <div className={styles.userOptions}>
-                  <ul>
-                    <li
-                      onClick={() =>
-                        router.push(`/user/${session.user.linkText}`)
-                      }
-                    >
-                      Profile
-                    </li>
-                    <li>Something</li>
-                    <li>Something Else</li>
-                    <li onClick={() => signOut()}>Log Out</li>
-                  </ul>
-                </div>
-              )}
+              <button
+                type="button"
+                className={styles.headerButton}
+                onClick={() => router.push(`/user/${session?.user.linkText}`)}
+              >
+                My Profile
+              </button>
+              <button
+                type="button"
+                className={styles.headerButton}
+                onClick={() => signOut()}
+              >
+                Sign Out
+              </button>
             </div>
           </div>
         ) : (
           <div className={styles.noUserRight}>
             <button
               type="button"
-              className={styles.signInButton}
+              className={styles.headerButton}
+              onClick={() => router.push('/register')}
+            >
+              Register
+            </button>
+            <button
+              type="button"
+              className={styles.headerButton}
               onClick={() => signIn()}
             >
               Sign In
