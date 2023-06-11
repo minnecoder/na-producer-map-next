@@ -20,6 +20,7 @@ export interface User {
   name: string
   email: string
   password: string
+  linkText: string
   lat: number
   long: number
 }

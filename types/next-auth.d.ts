@@ -5,6 +5,7 @@ import 'next-auth'
 declare module 'next-auth' {
   interface Session {
     user: {
+      linkText: string
       id: any
       name: string
       email: string
