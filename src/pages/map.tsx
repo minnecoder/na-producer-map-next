@@ -7,7 +7,7 @@ import { User } from '../../types'
 function MapPage() {
   const [mapData, setMapData] = useState<User[]>([])
   useEffect(() => {
-    fetch('/api/User')
+    fetch('/api/user')
       .then((res) => res.json())
       .then((data) => {
         setMapData(data.data)
