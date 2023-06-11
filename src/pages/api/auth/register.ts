@@ -18,7 +18,7 @@ export default async function handler(
 
   function replaceSpacesWithDashes(input: string): string {
     let result = ''
-    for (let i = 0; i < input.length; i++) {
+    for (let i = 0; i < input.length; i += 1) {
       if (input[i] === ' ') {
         result += '-'
       } else {
@@ -35,7 +35,7 @@ export default async function handler(
     email: req.body.email,
     password: hashedPassword,
     role: 'user',
-    linkText: linkText,
+    linkText,
     lat: req.body.lat,
     long: req.body.long,
   })
