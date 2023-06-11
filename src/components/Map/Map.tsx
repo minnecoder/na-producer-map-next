@@ -32,10 +32,13 @@ function Map(data: any) {
               <button
                 type="button"
                 onClick={() =>
-                  router.push({
-                    pathname: `/user/${marker.linkText}`,
-                    query: { data: JSON.stringify(marker) },
-                  })
+                  router.push(
+                    {
+                      pathname: `/user/${marker.linkText}`,
+                      query: { data: JSON.stringify(marker) },
+                    },
+                    `/user/${marker.linkText}`
+                  )
                 }
               >
                 View Profile
