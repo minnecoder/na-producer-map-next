@@ -11,9 +11,7 @@ import { Update } from '../../../types'
 export default function UserProfile() {
   const router = useRouter()
   const { data: session } = useSession()
-  if (!session) {
-    console.log('No session data')
-  }
+
   const [user, setUser] = useState<Update>({
     name: session?.user.name || '',
     email: session?.user.email || '',
