@@ -12,15 +12,15 @@ export default function UserProfile() {
   const router = useRouter()
   const { data: session } = useSession()
   if (!session) {
-    throw new Error('No session data')
+    console.log('No session data')
   }
   const [user, setUser] = useState<Update>({
-    name: session?.user.name,
-    email: session?.user.email,
+    name: session?.user.name || '',
+    email: session?.user.email || '',
     currentPassword: '',
     newPassword: '',
     confirmNewPassword: '',
-    linkText: session?.user.linkText,
+    linkText: session?.user.linkText || '',
     lat: Number(session?.user.lat),
     long: Number(session?.user.long),
   })
