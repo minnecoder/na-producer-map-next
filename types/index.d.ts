@@ -16,6 +16,17 @@ export interface RegisterErrors {
   long: string
 }
 
+export interface Update {
+  name: string
+  email: string
+  currentPassword: string
+  newPassword: string
+  confirmNewPassword: string
+  linkText: string
+  lat: number
+  long: number
+}
+
 export interface User {
   name: string
   email: string
