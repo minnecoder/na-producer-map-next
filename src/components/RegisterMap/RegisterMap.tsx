@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import styles from '@/styles/RegisterMap.module.css'
-import DraggableMarker from '../DraggableMarker'
+import RegisterDraggableMarker from './RegisterDraggableMarker'
 import { Register } from '../../../types'
 
 type Props = {
@@ -19,7 +19,7 @@ function RegisterMap({ setUser }: Props) {
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <DraggableMarker setUser={setUser} />
+      <RegisterDraggableMarker setUser={setUser} />
     </MapContainer>
   )
 }
