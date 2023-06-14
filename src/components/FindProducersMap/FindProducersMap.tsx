@@ -13,7 +13,7 @@ type Props = {
   setUser: Dispatch<SetStateAction<User>>
 }
 
-function FindProducersMap({ data, user, setUser }: Props) {
+function FindProducersMap({ user, setUser }: Props) {
   return (
     <MapContainer
       className={styles.map}
