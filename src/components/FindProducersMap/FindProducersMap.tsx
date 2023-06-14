@@ -8,7 +8,6 @@ import { User } from '../../../types'
 // This component is getting the types and styles from RegisterMap. If these change, it will change this map
 
 type Props = {
-  data: any
   user: User
   setUser: Dispatch<SetStateAction<User>>
 }
