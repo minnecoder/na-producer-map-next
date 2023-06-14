@@ -22,10 +22,10 @@ function Header() {
         <div className={styles.middle}>
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/map">Map</Link>
             </li>
             <li>
-              <Link href="/map">Map</Link>
+              <Link href="/findproducers">Find Producers</Link>
             </li>
             <li>
               <Link href="/about">About</Link>
