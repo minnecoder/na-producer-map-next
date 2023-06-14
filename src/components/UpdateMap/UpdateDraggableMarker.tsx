@@ -7,7 +7,7 @@ type Props = {
   setUser: Dispatch<SetStateAction<Update>>
 }
 
-export default function DraggableMarker({ setUser }: Props) {
+export default function UpdateDraggableMarker({ setUser }: Props) {
   const icon = L.icon({ iconUrl: '/images/marker-icon.png' })
 
   const [position, setPosition] = useState({ lat: 43.0, lng: -96.0 })
