@@ -14,6 +14,8 @@ type Props = {
 }
 
 function FindProducersMap({ user, setUser, mapData }: Props) {
+  console.log(mapData)
+
   return (
     <MapContainer
       className={styles.map}
