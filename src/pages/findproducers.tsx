@@ -42,18 +42,18 @@ export default function FindProducersPage() {
           <div>
             <label htmlFor="meetupDistance">
               Choose the distance to search for producers
+              <select name="meetupDistance" id="meetupDistance">
+                <option value="25miles">25 Miles</option>
+                <option value="50miles">50 miles</option>
+                <option value="100miles">100 miles</option>
+                <option value="200miles">200 miles</option>
+                <option value="300miles">300 miles</option>
+              </select>
             </label>
-            <select name="meetupDistance" id="meetupDistance">
-              <option value="25miles">25 Miles</option>
-              <option value="50miles">50 miles</option>
-              <option value="100miles">100 miles</option>
-              <option value="200miles">200 miles</option>
-              <option value="300miles">300 miles</option>
-            </select>
           </div>
         </div>
         <div className={styles.right}>
-          <FindProducersMap user={user} setUser={setUser} data={mapData} />
+          <FindProducersMap user={user} setUser={setUser} mapData={mapData} />
         </div>
       </div>
     </>

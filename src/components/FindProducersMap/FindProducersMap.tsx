@@ -10,9 +10,10 @@ import { User } from '../../../types'
 type Props = {
   user: User
   setUser: Dispatch<SetStateAction<User>>
+  mapData: User[]
 }
 
-function FindProducersMap({ user, setUser }: Props) {
+function FindProducersMap({ user, setUser, mapData }: Props) {
   return (
     <MapContainer
       className={styles.map}
