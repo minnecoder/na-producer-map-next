@@ -84,22 +84,23 @@ export default function FindProducersPage() {
         <h1>Find Producers</h1>
         <div className={styles.main}>
           <div className={styles.left}>
+            <h3 className={styles.stepTitle}>
+              Step 2: Choose the distance to search for producers
+            </h3>
             <div>
-              <label htmlFor="meetupDistance">
-                Choose the distance to search for producers
-                <select
-                  className={styles.selectbox}
-                  name="meetupDistance"
-                  id="meetupDistance"
-                  onChange={selectChange}
-                >
-                  <option value="25">25 Miles</option>
-                  <option value="50">50 miles</option>
-                  <option value="100">100 miles</option>
-                  <option value="200">200 miles</option>
-                  <option value="300">300 miles</option>
-                </select>
-              </label>
+              <select
+                className={styles.selectbox}
+                name="meetupDistance"
+                id="meetupDistance"
+                onChange={selectChange}
+              >
+                <option value="25">25 Miles</option>
+                <option value="50">50 miles</option>
+                <option value="100">100 miles</option>
+                <option value="200">200 miles</option>
+                <option value="300">300 miles</option>
+              </select>
+
               <button
                 type="button"
                 className={styles.button}
@@ -121,6 +122,9 @@ export default function FindProducersPage() {
             </div>
           </div>
           <div className={styles.right}>
+            <h3 className={styles.stepTitle}>
+              Step 1: Choose the location of the meetup
+            </h3>
             <FindProducersMap
               user={user}
               setMeetupLocation={setMeetupLocation}
