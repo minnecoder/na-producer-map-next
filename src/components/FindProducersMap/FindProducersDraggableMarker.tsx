@@ -44,6 +44,6 @@ export default function UpdateDraggableMarker({ setMeetupLocation }: Props) {
       position={position}
       ref={markerRef}
       icon={icon}
-    ></Marker>
+    />
   )
 }
