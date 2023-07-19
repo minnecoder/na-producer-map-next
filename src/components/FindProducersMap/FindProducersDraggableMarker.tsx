@@ -11,7 +11,9 @@ type Props = {
 }
 
 export default function UpdateDraggableMarker({ setMeetupLocation }: Props) {
-  const icon = L.icon({ iconUrl: '/images/marker-icon.png' })
+  const icon = L.icon({
+    iconUrl: 'images/marker-icon-green.png',
+  })
 
   const [position, setPosition] = useState({ lat: 43.0, lng: -96.0 })
   const markerRef = useRef(null)
@@ -42,14 +44,6 @@ export default function UpdateDraggableMarker({ setMeetupLocation }: Props) {
       position={position}
       ref={markerRef}
       icon={icon}
-    >
-      <Popup minWidth={90}>
-        <span>
-          {`Latitude: ${position.lat.toFixed(
-            4
-          )}°, Longitude: ${position.lng.toFixed(4)}°`}
-        </span>
-      </Popup>
-    </Marker>
+    ></Marker>
   )
 }
