@@ -1,10 +1,50 @@
 .container {
+  display: flex-column;
+  margin-top: 1rem;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.main {
   display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2rem;
 }
 
 .left {
   width: 50%;
+  margin-left: 3rem;
 }
+
+.selectbox {
+  margin: 0 1rem;
+  width: 200px;
+  height: 50px;
+}
+
+.selectedProducers {
+  margin-top: 1rem;
+}
+
+.selectedList {
+  border: solid 1px rgb(80, 80, 80);
+  border-radius: 5px;
+  width: 33%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.25rem;
+}
+
 .right {
   width: 50%;
+  margin-left: 3rem;
+}
+
+.button {
+  padding: 1rem 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
 }

@@ -81,49 +81,52 @@ export default function FindProducersPage() {
       </Head>
       <Header />
       <div className={styles.container}>
-        <div className={styles.left}>
-          <h1>Find Producers Map</h1>
-          <div>
-            <label htmlFor="meetupDistance">
-              Choose the distance to search for producers
-              <select
-                name="meetupDistance"
-                id="meetupDistance"
-                onChange={selectChange}
+        <h1>Find Producers</h1>
+        <div className={styles.main}>
+          <div className={styles.left}>
+            <div>
+              <label htmlFor="meetupDistance">
+                Choose the distance to search for producers
+                <select
+                  className={styles.selectbox}
+                  name="meetupDistance"
+                  id="meetupDistance"
+                  onChange={selectChange}
+                >
+                  <option value="25">25 Miles</option>
+                  <option value="50">50 miles</option>
+                  <option value="100">100 miles</option>
+                  <option value="200">200 miles</option>
+                  <option value="300">300 miles</option>
+                </select>
+              </label>
+              <button
+                type="button"
+                className={styles.button}
+                onClick={(e) =>
+                  findProducers(targetRange, allProducers, meetupLocation)
+                }
               >
-                <option value="25">25 Miles</option>
-                <option value="50">50 miles</option>
-                <option value="100">100 miles</option>
-                <option value="200">200 miles</option>
-                <option value="300">300 miles</option>
-              </select>
-            </label>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={(e) =>
-                findProducers(targetRange, allProducers, meetupLocation)
-              }
-            >
-              Find Producers
-            </button>
+                Find Producers
+              </button>
+            </div>
+            <div className={styles.selectedProducers}>
+              <h3>Producers within the area</h3>
+              {selectedProducers.map((item) => (
+                <div className={styles.selectedList}>
+                  <h3>{item.name}</h3>
+                  <p>{item.email}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div>
-            <h3>Producers</h3>
-            {selectedProducers.map((item) => (
-              <div>
-                <h3>{item.name}</h3>
-                <p>{item.email}</p>
-              </div>
-            ))}
+          <div className={styles.right}>
+            <FindProducersMap
+              user={user}
+              setMeetupLocation={setMeetupLocation}
+              mapData={allProducers}
+            />
           </div>
-        </div>
-        <div className={styles.right}>
-          <FindProducersMap
-            user={user}
-            setMeetupLocation={setMeetupLocation}
-            mapData={allProducers}
-          />
         </div>
       </div>
     </>
