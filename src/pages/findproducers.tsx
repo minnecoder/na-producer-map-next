@@ -124,7 +124,9 @@ export default function FindProducersPage() {
           <div className={styles.right}>
             <h3 className={styles.stepTitle}>
               Step 1: Choose the location of the meetup
+              <span>(The green marker is the location of the meetup)</span>
             </h3>
+
             <FindProducersMap
               user={user}
               setMeetupLocation={setMeetupLocation}
