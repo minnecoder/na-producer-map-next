@@ -3,7 +3,7 @@ import Head from 'next/head'
 import React from 'react'
 import { useRouter } from 'next/router'
 import styles from '@/styles/UserProfile.module.css'
-import UpdateMap from '../../components/UpdateMap'
+import UserMap from '../../components/UserMap'
 import { Update } from '../../../types'
 
 export default function UserProfile() {
@@ -12,7 +12,6 @@ export default function UserProfile() {
   const { data } = router.query
 
   const userData = JSON.parse(data as string)
-  console.log(userData)
 
   return (
     <>
@@ -49,10 +48,9 @@ export default function UserProfile() {
               <p>{userData.website || 'Not Available'}</p>
             </div>
           </div>
-          {/* <div className={styles.right}>
-            <p>Please place the marker to mark where you are located</p>
-            <UpdateMap user={user} setUser={setUser} />
-          </div> */}
+          <div className={styles.right}>
+            <UserMap user={userData} />
+          </div>
         </div>
       </main>
     </>
