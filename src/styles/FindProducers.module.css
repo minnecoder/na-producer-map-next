@@ -12,14 +12,17 @@
   flex-direction: row-reverse;
   margin-top: 2rem;
 }
-.stepTitle {
+.right p {
   margin-bottom: 0.5rem;
 }
 .left {
   width: 50%;
   margin-left: 3rem;
 }
-
+.stepTitle span {
+  padding-left: 0.25rem;
+  font-weight: normal;
+}
 .selectbox {
   margin-right: 1rem;
   width: 200px;
