@@ -1,17 +1,19 @@
-import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import React from 'react'
 import { useRouter } from 'next/router'
 import styles from '@/styles/UserProfile.module.css'
 import UserMap from '../../components/UserMap'
-import { Update } from '../../../types'
 
 export default function UserProfile() {
   const router = useRouter()
-  const { data: session } = useSession()
   const { data } = router.query
 
-  const userData = JSON.parse(data as string)
+  let userData
+  if (!data) {
+    userData = {}
+  } else {
+    userData = JSON.parse(data as string)
+  }
 
   return (
     <>
