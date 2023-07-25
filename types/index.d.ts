@@ -38,6 +38,9 @@ export interface Update {
   name: string
   email: string
   password: string
+  newPassword: string
+  confirmNewPassword: string
+  linkText: string
   lat: number
   long: number
   peerage?: string
@@ -55,6 +58,7 @@ export interface User {
   name: string
   email: string
   password: string
+  linkText: string
   lat: number
   long: number
   peerage?: string
@@ -72,6 +76,7 @@ export interface UpdateUserErrors {
   name: string
   email: string
   password: string
+  linkText: string
   lat: string
   long: string
   peerage: string

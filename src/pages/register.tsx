@@ -28,6 +28,15 @@ export default function RegisterPage() {
     confirmPassword: '',
     lat: '',
     long: '',
+    peerage: '',
+    phone: '',
+    facebook: '',
+    twitter: '',
+    instagram: '',
+    linkedin: '',
+    youtube: '',
+    nasocial: '',
+    website: '',
   })
   const [errorMessage, setErrorMessage] = useState('')
 

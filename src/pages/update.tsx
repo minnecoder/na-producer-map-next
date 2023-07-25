@@ -15,7 +15,7 @@ export default function UpdatePage() {
   const [user, setUser] = useState<Update>({
     name: session?.user.name || '',
     email: session?.user.email || '',
-    currentPassword: '',
+    password: '',
     newPassword: '',
     confirmNewPassword: '',
     linkText: session?.user.linkText || '',
@@ -61,7 +61,7 @@ export default function UpdatePage() {
       body: JSON.stringify({
         name: user.name,
         email: user.email,
-        currentPassword: user.currentPassword,
+        password: user.password,
         newPassword: user.newPassword,
         confirmNewPassword: user.confirmNewPassword,
         linkText: user.linkText,
@@ -114,7 +114,7 @@ export default function UpdatePage() {
                 label="Current Password"
                 name="currentPassword"
                 type="password"
-                value={user.currentPassword}
+                value={user.password}
                 onChange={handleChange}
                 error={errors.currentPassword}
               />
