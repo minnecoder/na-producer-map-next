@@ -3,6 +3,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import styles from '@/styles/UserProfile.module.css'
 import UserMap from '../../components/UserMap'
+import Header from '@/components/Header'
 
 export default function UserProfile() {
   const router = useRouter()
@@ -20,6 +21,7 @@ export default function UserProfile() {
       <Head>
         <title>User Profile</title>
       </Head>
+      <Header />
       <main>
         <div className={styles.container}>
           <div className={styles.left}>
