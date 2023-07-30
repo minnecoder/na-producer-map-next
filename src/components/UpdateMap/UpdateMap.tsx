@@ -22,7 +22,7 @@ function UpdateMap({ user, setUser }: Props) {
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-      <UpdateDraggableMarker setUser={setUser} />
+      <UpdateDraggableMarker user={user} setUser={setUser} />
     </MapContainer>
   )
 }
