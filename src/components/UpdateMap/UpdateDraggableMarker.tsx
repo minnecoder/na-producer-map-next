@@ -4,13 +4,13 @@ import L from 'leaflet'
 import { Update } from '../../../types'
 
 type Props = {
+  user: Update
   setUser: Dispatch<SetStateAction<Update>>
 }
-
-export default function UpdateDraggableMarker({ setUser }: Props) {
+export default function UpdateDraggableMarker({ user, setUser }: Props) {
   const icon = L.icon({ iconUrl: '/images/marker-icon.png' })
 
-  const [position, setPosition] = useState({ lat: 43.0, lng: -96.0 })
+  const [position, setPosition] = useState({ lat: user.lat, lng: user.long })
   const markerRef = useRef(null)
   const eventHandlers = useMemo(
     () => ({
