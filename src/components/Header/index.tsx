@@ -39,7 +39,7 @@ function Header() {
               <button
                 type="button"
                 className={styles.headerButton}
-                onClick={() => router.push(`/user/${session?.user.linkText}`)}
+                onClick={() => router.push(`/update`)}
               >
                 My Profile
               </button>
