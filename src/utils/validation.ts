@@ -1,4 +1,4 @@
-import { RegisterErrors, LoginErrors } from '../../types'
+import { RegisterErrors, LoginErrors, UpdatePasswordsErrors } from '../../types'
 
 export const checkLogin = (values: any) => {
   const errors: any = {}
@@ -49,5 +49,30 @@ export const checkRegister = (values: any) => {
     }
   })
 
+  return errors
+}
+
+export const checkUpdatePassword = (values: any) => {
+  const errors: any = {}
+  if (!values.password) {
+    errors.password = 'Current password is required'
+  }
+  if (!values.newPassword) {
+    errors.newPassword = 'New password is required'
+  } else if (values.newPassword !== values.confirmNewPassword) {
+    errors.newPassword = 'New password and confirm new password must match'
+  }
+  if (!values.confirmNewPassword) {
+    errors.confirmNewPassword = 'Confirm new password is required'
+  } else if (values.newPassword !== values.confirmNewPassword) {
+    errors.confirmNewPassword =
+      'New password and confirm new password must match'
+  }
+
+  Object.keys(errors).forEach((key) => {
+    if (errors[key as keyof UpdatePasswordsErrors] === '') {
+      delete errors[key as keyof UpdatePasswordsErrors]
+    }
+  })
   return errors
 }
