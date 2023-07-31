@@ -1,3 +1,21 @@
+export interface User {
+  name: string
+  email: string
+  password: string
+  linkText: string
+  lat: number
+  long: number
+  peerage?: string
+  phone?: string
+  facebook?: string
+  twitter?: string
+  instagram?: string
+  linkedin?: string
+  youtube?: string
+  nasocial?: string
+  website?: string
+}
+
 export interface Register {
   name: string
   email: string
@@ -37,27 +55,6 @@ export interface RegisterErrors {
 export interface Update {
   name: string
   email: string
-  password: string
-  newPassword: string
-  confirmNewPassword: string
-  linkText: string
-  lat: number
-  long: number
-  peerage?: string
-  phone?: string
-  facebook?: string
-  twitter?: string
-  instagram?: string
-  linkedin?: string
-  youtube?: string
-  nasocial?: string
-  website?: string
-}
-
-export interface User {
-  name: string
-  email: string
-  password: string
   linkText: string
   lat: number
   long: number
@@ -88,6 +85,18 @@ export interface UpdateUserErrors {
   youtube: string
   nasocial: string
   website: string
+}
+
+export interface UpdatePasswords {
+  password: string
+  newPassword: string
+  confirmNewPassword: string
+}
+
+export interface UpdatePasswordsErrors {
+  password: string
+  newPassword: string
+  confirmNewPassword: string
 }
 
 export interface Login {
