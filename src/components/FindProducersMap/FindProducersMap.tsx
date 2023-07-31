@@ -58,9 +58,7 @@ function FindProducersMap({ user, setMeetupLocation, mapData }: Props) {
           </Popup>
         </Marker>
       ))}
-
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
       <FindProducersDraggableMarker setMeetupLocation={setMeetupLocation} />
     </MapContainer>
   )
