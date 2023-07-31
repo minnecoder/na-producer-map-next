@@ -88,6 +88,7 @@ export interface UpdateUserErrors {
 }
 
 export interface UpdatePasswords {
+  email: string
   password: string
   newPassword: string
   confirmNewPassword: string
