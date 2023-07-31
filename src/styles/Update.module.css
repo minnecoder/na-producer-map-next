@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+}
+
+.left {
+  display: flex;
+  width: 50%;
+  height: 100vh;
+  justify-content: center;
+  margin-top: 6rem;
+}
+
+.infoTitles {
+  width: 20%;
+}
+
+.infoTitles p,
+.infoItems p {
+  margin: 0.5rem 0;
+  font-size: large;
+}
+
+.right {
+  margin-top: 6rem;
+  padding-right: 3rem;
+}
+
+.right p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.form p {
+  margin-top: 1rem;
+}
+
+.errorMessage {
+  padding-bottom: 1rem;
+  color: red;
+}
