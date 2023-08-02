@@ -6,10 +6,6 @@ import { useSession } from 'next-auth/react'
 import { User } from '../../types'
 import styles from '../styles/FindProducers.module.css'
 
-// Map where the location of the meetup would be
-// Ability to choose distances for search area
-// Displays list of producers
-
 type MeetupLocation = {
   lat: number
   long: number
@@ -24,8 +20,8 @@ export default function FindProducersPage() {
     email: session?.user.email || '',
     password: '',
     linkText: session?.user.linkText || '',
-    lat: Number(session?.user.lat || 0),
-    long: Number(session?.user.long || 0),
+    lat: Number(session?.user.lat || 41.0),
+    long: Number(session?.user.long || -92.0),
   })
   const [targetRange, setTargetRange] = useState<number>(25)
   const [meetupLocation, setMeetupLocation] = useState({

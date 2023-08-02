@@ -1,22 +1,31 @@
 import { Dispatch, SetStateAction, useState, useRef, useMemo } from 'react'
 import { Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
+import { User } from '../../../types'
 
 type MeetupLocation = {
   lat: number
   long: number
 }
 type Props = {
+  user: User
   setMeetupLocation: Dispatch<SetStateAction<MeetupLocation>>
 }
 
-export default function UpdateDraggableMarker({ setMeetupLocation }: Props) {
+export default function UpdateDraggableMarker({
+  user,
+  setMeetupLocation,
+}: Props) {
   const icon = L.icon({
     iconUrl: 'images/marker-icon-green.png',
   })
 
-  const [position, setPosition] = useState({ lat: 43.0, lng: -96.0 })
+  const [position, setPosition] = useState({
+    lat: user.lat,
+    lng: user.long,
+  })
   const markerRef = useRef(null)
+
   const eventHandlers = useMemo(
     () => ({
       dragend: () => {
