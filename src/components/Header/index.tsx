@@ -13,6 +13,11 @@ function Header() {
     setIsOpen(!isOpen)
   }
 
+  function signOutUser() {
+    router.push('/map')
+    signOut()
+  }
+
   return (
     <nav>
       <div className={styles.container}>
@@ -46,7 +51,7 @@ function Header() {
               <button
                 type="button"
                 className={styles.headerButton}
-                onClick={() => signOut()}
+                onClick={signOutUser}
               >
                 Sign Out
               </button>
