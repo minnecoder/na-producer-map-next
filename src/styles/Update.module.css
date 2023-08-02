@@ -4,24 +4,22 @@
 
 .left {
   display: flex;
-  width: 50%;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   justify-content: center;
-  margin-top: 6rem;
+  margin-top: 2rem;
 }
 
-.infoTitles {
-  width: 20%;
+.form {
+  width: 80%;
 }
 
-.infoTitles p,
-.infoItems p {
-  margin: 0.5rem 0;
-  font-size: large;
+.form p {
+  margin-top: 1rem;
 }
 
 .right {
-  margin-top: 6rem;
+  margin-top: 7rem;
   padding-right: 3rem;
 }
 
@@ -29,10 +27,6 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-}
-
-.form p {
-  margin-top: 1rem;
 }
 
 .errorMessage {
