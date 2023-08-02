@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
+import Header from '@/components/Header'
 import { useRouter } from 'next/router'
 import styles from '@/styles/UserProfile.module.css'
 import UserMap from '../../components/UserMap'
-import Header from '@/components/Header'
 
 export default function UserProfile() {
   const router = useRouter()
